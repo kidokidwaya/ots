@@ -149,6 +149,10 @@ footer{background:rgba(245,248,244,.92);backdrop-filter:blur(10px);-webkit-backd
 .sd{display:flex;gap:.45rem}.sd button{width:.65rem;height:.65rem;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:width .3s}
 .sd button.on{background:var(--sun);width:1.5rem;border-radius:99px}
 @media (prefers-reduced-motion:reduce){.bg .s,.tx>*{transition:none;animation:none}}
+.srt{border-top:1.5px solid var(--ink);margin-top:2rem}
+.srt>div{display:grid;grid-template-columns:.8fr 1.1fr 1.3fr;gap:.4rem 2rem;padding:1.2rem 0;border-bottom:1.5px solid var(--ln);align-items:baseline}
+.srt b{font:800 1.4rem "Bricolage Grotesque",sans-serif;color:var(--g)}.srt span{color:var(--mut)}
+@media (max-width:760px){.srt>div{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="bg" aria-hidden="true"><!-- EDIT: change each img src to your photo (e.g. images/bags.jpg) and the data-cap text --><figure class="s on" data-cap="Community clean-up"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230A5C36'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt=""></figure><figure class="s" data-cap="Waste awareness talk"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230A5C36'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure><figure class="s" data-cap="Clearing blocked drains"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230A5C36'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure><figure class="s" data-cap="Sorting waste with residents"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230A5C36'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure></div>
@@ -169,6 +173,27 @@ footer{background:rgba(245,248,244,.92);backdrop-filter:blur(10px);-webkit-backd
     <li><b>Clean up together</b><span>Join community clean-ups and tell the authorities when you see illegal dumping.</span></li>
   </ul>
 </div></section>
+<section class="pad" id="sort"><div class="w"><h2>Sort it right.</h2><p style="color:var(--mut);margin-top:1rem;max-width:36rem">Separating waste at home makes it easier to collect, reuse and recycle. Here is a simple guide.</p>
+<div class="srt">
+<div><b>Wet waste</b><span>Food scraps, peels and leftovers.</span><span>Keep it in a covered bin and empty it often so it does not attract pests.</span></div>
+<div><b>Plastic</b><span>Bottles, sachet nylon and containers.</span><span>Keep it dry and apart from food waste so it can be collected for recycling.</span></div>
+<div><b>Paper and cardboard</b><span>Boxes, newspapers and paper.</span><span>Keep it dry and flatten boxes to save space.</span></div>
+<div><b>Glass and metal</b><span>Bottles, cans and tins.</span><span>Rinse them and handle broken glass with care.</span></div>
+<div><b>Hazardous waste</b><span>Batteries, bulbs, chemicals and medical waste.</span><span>Keep it apart from normal waste and ask the authorities how to dispose of it safely.</span></div>
+</div></div></section>
+<section class="pad" id="report"><div class="w two">
+<div><h2>See something wrong? Tell us.</h2><p style="color:var(--mut);margin-top:1rem;max-width:30rem">Illegal dumping, a blocked drain or a pile of burning rubbish? Send us the details and the exact location so the team can see it.</p></div>
+<!-- Reports are sent to the Netlify form named "report" -->
+<form class="fm" name="report" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-ajax>
+<input type="hidden" name="form-name" value="report"><p class="hp"><label>Leave empty <input name="bot-field"></label></p>
+<label>Where is it?<input name="location" required placeholder="Street, landmark or area"></label>
+<label>What is the problem?<select name="problem"><option>Illegal dumping</option><option>Blocked drain</option><option>Burning waste</option><option>Overflowing bin</option><option>Something else</option></select></label>
+<label>Details<textarea name="details" rows="4" required></textarea></label>
+<label>Your name <small>(optional)</small><input name="name" autocomplete="name"></label>
+<label>Phone number <small>(optional)</small><input name="phone" type="tel" autocomplete="tel"></label>
+<button class="btn" type="submit">Send report</button><div class="msg" hidden></div></form>
+</div></section>
+<section class="end pad"><div class="w"><h2>Let's keep Ibeju-Lekki clean.</h2><p>Small habits at home add up to a cleaner community for everyone.</p><div class="row"><a class="btn y" href="contact.html">Contact us</a><a class="btn o" href="foundation.html">See the foundation's work</a></div></div></section>
 </main>
 <footer class="pad"><span>&copy; Ogungbo Temitope Sofwan (OTS) Foundation, Ibeju-Lekki, Lagos</span><span>Website by <a href="https://www.tiktok.com/@kidwayadev" target="_blank" rel="noopener">Kidwayadev</a></span></footer>
 <script>
@@ -191,7 +216,7 @@ var am=document.getElementById('amount');
 [].slice.call(document.querySelectorAll('form[data-ajax]')).forEach(function(f){
  f.addEventListener('submit',function(e){e.preventDefault();var m=f.querySelector('.msg'),btn=f.querySelector('button[type=submit]');btn.disabled=true;
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and will contact you shortly with the payment information.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
+  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and the foundation team will contact you shortly.':f.name==='report'?'Thank you. Your report has been sent to the team.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
   .catch(function(){m.className='msg err';m.textContent='We could not send that. Please try again or message us on WhatsApp.';m.hidden=false})
   .then(function(){btn.disabled=false})})});
 })();

@@ -153,10 +153,10 @@ footer{background:rgba(245,248,244,.92);backdrop-filter:blur(10px);-webkit-backd
 <body>
 <header class="pad"><a class="logo" href="index.html">OTS Foundation</a><nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="foundation.html">Foundation</a><a href="environment.html">Environment</a><a href="asalatu.html">Asalatu</a><a href="contact.html">Contact</a></nav><a class="btn y" href="donate.html">Donate</a></header>
 <main>
-<section class="phd pad"><div class="w"><h1 class="pg">Make a donation.</h1><p>Tell us who you are and what you would like to support. We will contact you with the payment details.</p></div></section>
+<section class="phd pad"><div class="w"><h1 class="pg">Make a donation.</h1><p id="plead">Tell us who you are and what you would like to support. The foundation team will contact you to complete your donation.</p></div></section>
 <section class="pad"><div class="w">
-<form class="fm" name="donation" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-ajax>
-<input type="hidden" name="form-name" value="donation"><p class="hp"><label>Leave empty <input name="bot-field"></label></p>
+<form class="fm" id="dform" name="donation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="donation"><input type="hidden" name="reference"><input type="hidden" name="status"><p class="hp"><label>Leave empty <input name="bot-field"></label></p>
 <label>Full name<input name="name" required autocomplete="name"></label>
 <label>Email<input name="email" type="email" required autocomplete="email"></label>
 <label>Phone number<input name="phone" type="tel" required autocomplete="tel"></label>
@@ -164,8 +164,8 @@ footer{background:rgba(245,248,244,.92);backdrop-filter:blur(10px);-webkit-backd
 <div><label for="amount">Amount (₦)</label><div class="chips" style="margin:.5rem 0"><button type="button" data-v="2000">₦2,000</button><button type="button" data-v="5000">₦5,000</button><button type="button" data-v="10000">₦10,000</button><button type="button" data-v="20000">₦20,000</button></div><input id="amount" name="amount" type="number" min="500" step="100" required placeholder="Enter an amount"></div>
 <label>Note <small>(optional)</small><textarea name="note" rows="3"></textarea></label>
 <label class="ck"><input type="checkbox" name="private" value="yes"> Keep my name private</label>
-<button class="btn y" type="submit">Submit my details</button>
-<p style="color:var(--mut);font-size:.92rem">Online payment is coming soon. For now, we will reach you with the account details after you submit.</p>
+<button class="btn y" id="pbtn" type="submit">Submit my details</button>
+<p id="pnote" style="color:var(--mut);font-size:.92rem">Online payment is coming soon. For now, submit your details and the foundation team will contact you to complete your donation.</p>
 <div class="msg" hidden></div></form></div></section>
 </main>
 <footer class="pad"><span>&copy; Ogungbo Temitope Sofwan (OTS) Foundation, Ibeju-Lekki, Lagos</span><span>Website by <a href="https://www.tiktok.com/@kidwayadev" target="_blank" rel="noopener">Kidwayadev</a></span></footer>
@@ -189,9 +189,49 @@ var am=document.getElementById('amount');
 [].slice.call(document.querySelectorAll('form[data-ajax]')).forEach(function(f){
  f.addEventListener('submit',function(e){e.preventDefault();var m=f.querySelector('.msg'),btn=f.querySelector('button[type=submit]');btn.disabled=true;
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and will contact you shortly with the payment information.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
+  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and the foundation team will contact you shortly.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
   .catch(function(){m.className='msg err';m.textContent='We could not send that. Please try again or message us on WhatsApp.';m.hidden=false})
   .then(function(){btn.disabled=false})})});
+})();
+</script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+(function(){
+// EDIT: paste your Paystack PUBLIC key here (starts with pk_test_ or pk_live_). Never put the secret key here.
+var PK='pk_test_REPLACE_WITH_YOUR_KEY';
+var live=/^pk_(test|live)_[A-Za-z0-9]+$/.test(PK);
+var f=document.getElementById('dform'),btn=document.getElementById('pbtn'),m=f.querySelector('.msg'),finished=false;
+if(live){btn.textContent='Donate now';document.getElementById('pnote').textContent='Payments are processed securely by Paystack.';document.getElementById('plead').textContent='Choose what to support and pay securely online.'}
+function show(t,err){m.className='msg'+(err?' err':'');m.textContent=t;m.hidden=false}
+function save(ref,status){f.elements.reference.value=ref||'';f.elements.status.value=status;
+ return fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})}
+function done(ref,amt){
+ finished=true;btn.disabled=true;show('Confirming your payment...',0);
+ fetch('/.netlify/functions/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({reference:ref})})
+ .then(function(r){return r.json()})
+ .then(function(d){var ok=d.paid&&d.amount===amt;
+  save(ref,ok?'PAID (verified)':'NOT CONFIRMED - check Paystack').catch(function(){});
+  show(ok?'Thank you! Your donation of \u20a6'+amt.toLocaleString('en-NG')+' was received. Reference: '+ref:'We could not confirm your payment. If money was taken, please contact us with this reference: '+ref,!ok);
+  if(ok)f.reset()})
+ .catch(function(){save(ref,'UNVERIFIED - check Paystack').catch(function(){});
+  show('We could not confirm your payment right now. If money was taken, please contact us with this reference: '+ref,1)})
+ .then(function(){btn.disabled=false});
+}
+f.addEventListener('submit',function(e){
+ e.preventDefault();
+ if(!f.checkValidity()){f.reportValidity();return}
+ m.hidden=true;finished=false;
+ var amt=Math.round(parseFloat(f.elements.amount.value));
+ if(!live){btn.disabled=true;
+  save('','DETAILS ONLY (no payment)').then(function(r){if(!r.ok)throw 0;show('Thank you. We have your details and the foundation team will contact you shortly.',0);f.reset()})
+  .catch(function(){show('We could not send that. Please try again or message us on WhatsApp.',1)}).then(function(){btn.disabled=false});return}
+ if(typeof PaystackPop==='undefined'){show('The payment window could not load. Please check your internet and try again.',1);return}
+ var ref='OTS-'+Date.now()+'-'+Math.floor(Math.random()*100000);
+ PaystackPop.setup({key:PK,email:f.elements.email.value,amount:amt*100,currency:'NGN',ref:ref,
+  metadata:{custom_fields:[{display_name:'Name',variable_name:'name',value:f.elements.name.value},{display_name:'Phone',variable_name:'phone',value:f.elements.phone.value},{display_name:'Cause',variable_name:'cause',value:f.elements.cause.value}]},
+  callback:function(r){done(r.reference,amt)},
+  onClose:function(){setTimeout(function(){if(!finished)show('Payment was not completed.',1)},500)}}).openIframe();
+});
 })();
 </script>
 </body></html>

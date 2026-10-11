@@ -188,7 +188,7 @@ var am=document.getElementById('amount');
 [].slice.call(document.querySelectorAll('form[data-ajax]')).forEach(function(f){
  f.addEventListener('submit',function(e){e.preventDefault();var m=f.querySelector('.msg'),btn=f.querySelector('button[type=submit]');btn.disabled=true;
   fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and will contact you shortly with the payment information.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
+  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and the foundation team will contact you shortly.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
   .catch(function(){m.className='msg err';m.textContent='We could not send that. Please try again or message us on WhatsApp.';m.hidden=false})
   .then(function(){btn.disabled=false})})});
 })();
