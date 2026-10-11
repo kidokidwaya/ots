@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light">
+<title>Foundation | OTS Foundation, Ibeju-Lekki</title><meta name="description" content="The OTS Foundation helps students in Ibeju-Lekki with bags, books, tuition and scholarships.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F8F4;--ink:#0F1A14;--mut:#506057;--g:#0A5C36;--gd:#06402A;--sun:#F2B705;--ln:rgba(15,26,20,.18)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.65 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:-.025em}
+p{margin:0}a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.pad{padding-left:clamp(1.25rem,5vw,4rem);padding-right:clamp(1.25rem,5vw,4rem)}
+.w{max-width:72rem;margin:0 auto}
+.btn{display:inline-block;background:var(--g);color:#fff;font-weight:600;text-decoration:none;padding:.85rem 1.4rem;border-radius:999px;transition:background .2s}
+.btn:hover{background:var(--gd)}
+.btn.y{background:var(--sun);color:var(--ink)}.btn.y:hover{background:#ffc928}
+.btn.o{background:transparent;color:inherit;border:1.5px solid currentColor}.btn.o:hover{background:rgba(127,127,127,.15)}
+.row{display:flex;flex-wrap:wrap;gap:.7rem}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.6rem 1.5rem;padding-top:1.1rem;padding-bottom:1.1rem}
+.logo{font:800 1.25rem "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.02em}
+nav{display:flex;gap:1.4rem;font-weight:600;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--g)}
+@media (max-width:760px){nav{order:3;width:100%;overflow-x:auto;gap:1.2rem;padding-bottom:.2rem}header .btn{padding:.6rem 1rem}}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-top:clamp(2rem,6vw,4.5rem);padding-bottom:clamp(3rem,7vw,5.5rem)}
+h1{font-weight:800;font-size:clamp(3rem,9.5vw,6.6rem);line-height:.92;color:var(--g)}
+h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+h1 span i{display:block;font-style:normal;animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+h1 span:nth-child(2) i{animation-delay:.12s}h1 span:nth-child(3) i{animation-delay:.24s}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+.hero .lead{max-width:30rem;margin:1.6rem 0 1.8rem;font-size:1.2rem;color:var(--mut)}
+.ph{margin:0;position:relative;justify-self:center;width:100%;max-width:25rem}
+.ph::before{content:"";position:absolute;inset:1.2rem -1.2rem -1.2rem 1.2rem;background:var(--sun);border-radius:150px 28px 28px 28px}
+.ph img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:150px 28px 28px 28px;background:#cfe3d6}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.ph{order:-1;max-width:17rem;margin-right:1.2rem}}
+section{padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(3rem,8vw,6rem)}
+h2{font-weight:800;font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.02}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.about p{color:var(--mut);margin-top:1.1rem;max-width:34rem}
+.roles{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:3px solid var(--g)}
+.roles li{padding:0 0 1.8rem;position:relative}.roles li:last-child{padding-bottom:0}
+.roles li::before{content:"";position:absolute;left:calc(-1.6rem - 8.5px);top:.45rem;width:14px;height:14px;border-radius:50%;background:var(--sun);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--g)}
+.roles b{display:block;font:800 1.35rem "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.roles span{color:var(--mut)}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.fnd{background:var(--g);color:#fff}
+.fnd .top{max-width:44rem}
+.fnd .top p{margin-top:1.1rem;font-size:1.15rem;color:rgba(255,255,255,.82)}
+.help{margin-top:3rem;display:grid;grid-template-columns:repeat(2,1fr);border-top:1.5px solid rgba(255,255,255,.35)}
+.help div{padding:1.6rem 1.5rem 1.8rem 0;border-bottom:1.5px solid rgba(255,255,255,.35)}
+.help div:nth-child(odd){padding-right:2rem}
+.help div:nth-child(even){padding-left:2rem;border-left:1.5px solid rgba(255,255,255,.35)}
+.help h3{font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1;color:var(--sun)}
+.help p{margin-top:.6rem;color:rgba(255,255,255,.85);max-width:24rem}
+@media (max-width:640px){.help{grid-template-columns:1fr}.help div:nth-child(n){padding:1.4rem 0;border-left:0}}
+.ask{margin-top:2.5rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem;background:rgba(0,0,0,.22);border-radius:22px;padding:1.6rem}
+.ask p{max-width:36rem}.ask b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.3rem}
+.env{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.env .lead{margin-top:1.2rem;color:var(--mut);max-width:26rem}
+.env h2{color:var(--g)}
+@media (min-width:761px){.env>div:first-child{position:sticky;top:2rem}}
+@media (max-width:760px){.env{grid-template-columns:1fr}}
+.tips{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.tips li{padding:1.15rem 0;border-bottom:1.5px solid var(--ln)}
+.tips b{display:block;font:800 1.25rem "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.tips span{color:var(--mut)}
+.pray{background:var(--ink);color:#fff}
+.live{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;margin-bottom:1.3rem}
+.live i{width:.8rem;height:.8rem;border-radius:50%;background:#FF3B30;animation:pulse 1.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.7)}100%{box-shadow:0 0 0 14px rgba(255,59,48,0)}}
+.pray h2{max-width:16ch}
+.pray .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:2.5rem 0}
+.pray h3{font-weight:800;font-size:1.4rem;color:var(--sun)}
+.pray .cols p{margin-top:.5rem;color:rgba(255,255,255,.78)}
+@media (max-width:760px){.pray .cols{grid-template-columns:1fr;gap:1.5rem}}
+.end{text-align:center}
+.end h2{max-width:15ch;margin:0 auto;color:var(--g)}
+.end p{margin:1.1rem auto 1.8rem;color:var(--mut);max-width:30rem}
+.end .row{justify-content:center}
+.end .btn.o{color:var(--ink)}
+footer{border-top:1.5px solid var(--ln);padding-top:1.6rem;padding-bottom:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;color:var(--mut);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){h1 span i,.live i{animation:none}html{scroll-behavior:auto}}
+
+nav a.on{color:var(--g);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-color:var(--sun)}
+.btn.y{color:var(--ink)}
+.pg{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;font-weight:800;color:var(--g);max-width:16ch}
+.phd{padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:0}
+.phd p{max-width:36rem;margin-top:1.1rem;color:var(--mut);font-size:1.15rem}
+.stats{background:var(--ink);color:#fff;padding-top:clamp(2.5rem,6vw,4rem);padding-bottom:clamp(2.5rem,6vw,4rem)}
+.stats .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:2rem 1.5rem}
+.stats b{display:block;font:800 clamp(2.2rem,5vw,3.4rem)/1 "Bricolage Grotesque",sans-serif;color:var(--sun);letter-spacing:-.03em}
+.stats span{display:block;margin-top:.5rem;color:rgba(255,255,255,.75);font-size:.98rem}
+.go{border-top:1.5px solid var(--ink);margin-top:2.2rem}
+.go a{display:grid;grid-template-columns:1fr 1.1fr;gap:.5rem 2rem;align-items:baseline;padding:1.5rem 0;border-bottom:1.5px solid var(--ln);text-decoration:none;transition:padding .2s}
+.go a:hover{padding-left:.8rem}
+.go h3{font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--g)}.go p{color:var(--mut)}
+@media (max-width:640px){.go a{grid-template-columns:1fr}}
+.cp{display:grid;grid-template-columns:1.1fr 1.3fr auto;gap:1rem 2rem;align-items:center;padding:1.6rem 0;border-bottom:1.5px solid var(--ln)}
+.cps{border-top:1.5px solid var(--ink);margin-top:2rem}
+.cp h3{font-weight:800;font-size:1.5rem}.cp p{color:var(--mut)}
+.bar{height:14px;background:rgba(15,26,20,.12);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--g);border-radius:99px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.cn{margin-top:.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.95rem}.cn b{color:var(--ink)}
+@media (max-width:820px){.cp{grid-template-columns:1fr}.cp .btn{justify-self:start}}
+.jobs{border-top:1.5px solid var(--ink);margin-top:2rem}
+.job{display:grid;grid-template-columns:1.4fr 1fr auto;gap:.6rem 2rem;align-items:center;padding:1.3rem 0;border-bottom:1.5px solid var(--ln)}
+.job h3{font-weight:800;font-size:1.35rem}.job p{color:var(--mut);font-size:.98rem}
+@media (max-width:820px){.job{grid-template-columns:1fr}.job .btn{justify-self:start}}
+.fm{display:grid;gap:1.1rem;max-width:36rem}
+.fm label{display:grid;gap:.4rem;font-weight:600}
+.fm input,.fm select,.fm textarea{font:inherit;font-weight:400;padding:.8rem 1rem;border:1.5px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);width:100%}
+.fm small{font-weight:400;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips button{font:600 .95rem "Figtree",sans-serif;padding:.5rem 1rem;border-radius:99px;border:1.5px solid var(--g);background:#fff;color:var(--g);cursor:pointer}
+.chips button:hover,.chips button.on{background:var(--g);color:#fff}
+.ck{display:flex!important;grid-template-columns:none;align-items:center;gap:.6rem;font-weight:400!important}.ck input{width:auto}
+.hp{position:absolute;left:-9999px}
+.msg{padding:1rem 1.2rem;border-radius:14px;background:#dff0e5;color:var(--gd);font-weight:600}.msg.err{background:#fde3e0;color:#8a1c12}
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.ct a.l{display:block;padding:1rem 0;border-bottom:1.5px solid var(--ln);text-decoration:none}
+.ct a.l b{display:block;font:800 1.3rem "Bricolage Grotesque",sans-serif;color:var(--g)}.ct a.l span{color:var(--mut)}
+.opt{margin-top:2.5rem;padding:1.5rem;border-radius:22px;background:var(--sun)}
+.opt p{margin:.4rem 0 1rem}
+
+html{background:var(--bg);scroll-padding-top:7rem}body{background:transparent}
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(12,22,17,.42);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.18);color:#fff}
+header .logo{color:#fff}header nav a{color:rgba(255,255,255,.82)}header nav a:hover{color:#fff}header nav a.on{color:#fff;text-decoration-color:var(--sun)}
+.phd{padding-top:clamp(7rem,14vw,9rem)}
+.bg{position:fixed;inset:0;z-index:-1;background:var(--ink)}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.2) 40%,rgba(0,0,0,.6))}
+.bg .s{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1s ease}
+.bg .s.on{opacity:1}.bg img{width:100%;height:100%;object-fit:cover;display:block}
+main>section:not(.hh){background:rgba(245,248,244,.87);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+main>section.fnd{background:rgba(10,92,54,.88)}main>section.stats,main>section.pray{background:rgba(15,26,20,.88)}
+footer{background:rgba(245,248,244,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hh{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2rem;padding-top:8rem;padding-bottom:1.4rem;color:#fff}
+.hh .w{width:100%}
+.hx{font:800 clamp(2.1rem,5.5vw,3.8rem)/1.02 "Bricolage Grotesque",sans-serif;letter-spacing:-.025em;max-width:18ch;margin:0}
+.l2{max-width:32rem;margin:.9rem 0 1.4rem;font-size:1.08rem;color:rgba(255,255,255,.9)}
+.tx>*{animation:fu .8s cubic-bezier(.2,.8,.2,1) both}.tx>:nth-child(2){animation-delay:.1s}.tx>:nth-child(3){animation-delay:.2s}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ctl{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.28);padding-top:1rem}
+.cap{font-weight:600;font-size:.95rem;color:rgba(255,255,255,.92)}
+.cc{display:flex;align-items:center;gap:.8rem}
+.ctl .a{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
+.ctl .a:hover{background:var(--sun);color:var(--ink);border-color:var(--sun)}
+.sd{display:flex;gap:.45rem}.sd button{width:.65rem;height:.65rem;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:width .3s}
+.sd button.on{background:var(--sun);width:1.5rem;border-radius:99px}
+@media (prefers-reduced-motion:reduce){.bg .s,.tx>*{transition:none;animation:none}}
+
+.th-teal{--g:#0B6E6E;--gd:#07504F}
+.th-teal main>section.fnd{background:rgba(11,110,110,.88)}
+.cp{cursor:pointer}.cp:hover h3,.cp:focus-visible h3{color:var(--g)}
+.cp .hint{margin-top:.3rem;font-size:.88rem;font-weight:600;color:var(--g)}
+.lock{overflow:hidden}
+dialog{border:0;border-radius:24px;padding:0;width:calc(100% - 2rem);max-width:34rem;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+dialog::backdrop{background:rgba(8,16,12,.62);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .25s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.dg{padding:1.8rem}.dg h3{font-weight:800;font-size:1.8rem;line-height:1.1}.dg #cdm{margin:.8rem 0 1.2rem;color:var(--mut)}
+.dg h4{font:800 1.1rem "Bricolage Grotesque",sans-serif;margin:1.4rem 0 .4rem}.dg ul{margin:0;padding-left:1.2rem;color:var(--mut)}.dg li{margin:.3rem 0}
+.dg .row{margin-top:1.6rem}.dg .cn{margin-top:.5rem}
+@media (prefers-reduced-motion:reduce){dialog[open]{animation:none}}
+</style></head>
+<body class="th-teal">
+<div class="bg" aria-hidden="true"><!-- EDIT: change each img src to your photo (e.g. images/bags.jpg) and the data-cap text --><figure class="s on" data-cap="School bag giveaway"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230B6E6E'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt=""></figure><figure class="s" data-cap="Paying tuition for students"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230B6E6E'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure><figure class="s" data-cap="Books for pupils"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230B6E6E'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure><figure class="s" data-cap="Scholarship presentation"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230B6E6E'/%3E%3Ctext x='50%25' y='30%25' font-family='Arial' font-size='64' font-weight='700' text-anchor='middle' fill='white' fill-opacity='.85'%3EYOUR PHOTO HERE%3C/text%3E%3C/svg%3E" alt="" loading="lazy"></figure></div>
+<header class="pad"><a class="logo" href="index.html">OTS Foundation</a><nav aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="foundation.html" class="on" aria-current="page">Foundation</a><a href="environment.html">Environment</a><a href="asalatu.html">Asalatu</a><a href="contact.html">Contact</a></nav><a class="btn y" href="donate.html">Donate</a></header>
+<main>
+<section class="hh pad"><div class="w tx"><h1 class="hx">Keeping students in school.</h1><p class="l2">The OTS Foundation helps students in Ibeju-Lekki with bags, books, tuition and scholarships, all year round.</p><div class="row"><a class="btn y" href="donate.html">Donate</a><a class="btn o" href="#campaigns">See our campaigns</a></div></div><div class="w ctl" role="region" aria-roledescription="carousel" aria-label="Photos of our work"><span class="cap"></span><div class="cc"><button class="a sp" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="sd"></div><button class="a sn" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div></div></section>
+<section class="stats pad"><div class="w g"><!-- EDIT: change the numbers in data-count to the real figures --><div><b data-count="1250" data-prefix="" data-suffix="+">1,250+</b><span>Students supported</span></div><div><b data-count="85" data-prefix="" data-suffix="+">85+</b><span>Teachers supported</span></div><div><b data-count="320" data-prefix="" data-suffix="+">320+</b><span>Graduates produced</span></div><div><b data-count="140" data-prefix="" data-suffix="">140</b><span>Scholarships awarded</span></div><div><b data-count="18400000" data-prefix="₦" data-suffix="">₦18,400,000</b><span>Funds used so far</span></div></div></section><section id="provide" class="fnd pad"><div class="w">
+  <div class="top">
+    <h2>The OTS Foundation puts students first.</h2>
+    <p>No child in Ibeju-Lekki should drop out because their family cannot afford the basics. The Ogungbo Temitope Sofwan Foundation helps students all year round.</p>
+  </div>
+  <div class="help">
+    <div><h3>School bags</h3><p>A bag to carry books to class with pride.</p></div>
+    <div><h3>Books</h3><p>Textbooks, notebooks and the materials students need to learn.</p></div>
+    <div><h3>Tuition</h3><p>Help with school fees so students can stay in class.</p></div>
+    <div><h3>Scholarships</h3><p>Support for hardworking students to continue their education.</p></div>
+  </div>
+  <div class="ask">
+    <p><b>Need help, or want to give?</b><br>Send us the student's name, school, class and what is needed. You can also contact us to support the foundation.</p>
+    <a class="btn y" href="https://wa.me/234XXXXXXXXXX?text=Hello%20OTS%20Foundation%2C%20I%20need%20help%20for%20a%20student." target="_blank" rel="noopener">Message on WhatsApp</a>
+  </div>
+</div></section><section class="pad" id="campaigns"><div class="w"><h2>What we are working on now.</h2><p style="color:var(--mut);margin-top:1rem;max-width:36rem">Every naira goes toward these goals. See how close we are, then help us get there.</p><div class="cps"><!-- EDIT: change the numbers in each campaign --><article class="cp" tabindex="0" role="button" aria-haspopup="dialog" aria-label="More about School bags for every pupil" data-more="A sturdy school bag keeps books safe and dry and helps a child arrive at school ready to learn. Our goal is to give 20,000 pupils a new bag." data-pts="Every bag goes to a pupil who needs one|Bags are given out to students across Ibeju-Lekki|Even a small gift moves us closer to the goal"><!-- EDIT: change the pop-up text in data-more and data-pts --><div><h3>School bags for every pupil</h3><p>A bag to carry books to class with pride.</p><p class="hint">Tap to see more</p></div><div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="32" aria-label="School bags for every pupil"><i data-p="32" style="width:32%"></i></div><p class="cn"><span><b>6,500</b> of 20,000 bags</span><span>32% reached</span></p></div><a class="btn y" href="donate.html?cause=School%20bags">Donate</a></article><article class="cp" tabindex="0" role="button" aria-haspopup="dialog" aria-label="More about School shoes" data-more="A good pair of shoes protects a child on the way to school and builds confidence in class. Our goal is to give 10,000 pairs to pupils who need them." data-pts="Each gift puts a pair of shoes on a child who needs them|Shoes are given to students across Ibeju-Lekki|Every pair counts toward the 10,000 goal"><!-- EDIT: change the pop-up text in data-more and data-pts --><div><h3>School shoes</h3><p>A new pair of shoes for every child who needs one.</p><p class="hint">Tap to see more</p></div><div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="32" aria-label="School shoes"><i data-p="32" style="width:32%"></i></div><p class="cn"><span><b>3,200</b> of 10,000 pairs of shoes</span><span>32% reached</span></p></div><a class="btn y" href="donate.html?cause=School%20shoes">Donate</a></article><article class="cp" tabindex="0" role="button" aria-haspopup="dialog" aria-label="More about Scholarship fund" data-more="The scholarship fund supports hardworking students who want to keep studying but cannot afford it. Our goal is to award 100 scholarships." data-pts="Awards go to students who show effort and need|Support can help with tuition and learning materials|Students can contact us to ask how to apply"><!-- EDIT: change the pop-up text in data-more and data-pts --><div><h3>Scholarship fund</h3><p>Full support for hardworking students to continue their studies.</p><p class="hint">Tap to see more</p></div><div><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42" aria-label="Scholarship fund"><i data-p="42" style="width:42%"></i></div><p class="cn"><span><b>42</b> of 100 scholarships</span><span>42% reached</span></p></div><a class="btn y" href="donate.html?cause=Scholarships">Donate</a></article></div></div></section><section class="pad" id="jobs" style="padding-top:0"><div class="w"><h2>Teaching opportunities.</h2><p style="color:var(--mut);margin-top:1rem;max-width:36rem">Open roles with the foundation and partner schools. Tap apply to send us your details.</p><div class="jobs"><!-- EDIT: replace these sample jobs with real openings --><div class="job"><div><h3>Primary school teacher (Mathematics)</h3></div><p>Ibeju-Lekki, Full-time</p><a class="btn" href="contact.html?subject=Teaching%20job">Apply</a></div><div class="job"><div><h3>Secondary school English teacher</h3></div><p>Ibeju-Lekki, Full-time</p><a class="btn" href="contact.html?subject=Teaching%20job">Apply</a></div><div class="job"><div><h3>Weekend volunteer tutor</h3></div><p>Ibeju-Lekki, Volunteer</p><a class="btn" href="contact.html?subject=Teaching%20job">Apply</a></div></div></div></section>
+</main>
+<footer class="pad"><span>&copy; Ogungbo Temitope Sofwan (OTS) Foundation, Ibeju-Lekki, Lagos</span><span>Website by <a href="https://www.tiktok.com/@kidwayadev" target="_blank" rel="noopener">Kidwayadev</a></span></footer>
+<dialog id="cdlg" aria-labelledby="cdt"><div class="dg"><h3 id="cdt"></h3><p id="cdm"></p><div id="cdb"></div><h4>How your gift helps</h4><ul id="cdp"></ul><div class="row"><a class="btn y" id="cdd" href="donate.html">Donate</a><button class="btn o" type="button" id="cdx">Cancel</button></div></div></dialog>
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fmt(n){return n.toLocaleString('en-NG')}
+function run(el){var t=+el.dataset.count,p=el.dataset.prefix||'',s=el.dataset.suffix||'',st=null;
+ function f(ts){st=st||ts;var k=Math.min((ts-st)/1500,1),e=1-Math.pow(1-k,3);el.textContent=p+fmt(Math.round(t*e))+s;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+var cs=[].slice.call(document.querySelectorAll('[data-count]')),bs=[].slice.call(document.querySelectorAll('.bar i'));
+if(!rm&&'IntersectionObserver' in window){
+ bs.forEach(function(b){b.style.width='0'});
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var x=e.target;if(x.dataset.count)run(x);else x.style.width=x.dataset.p+'%';io.unobserve(x)})},{threshold:.4});
+ cs.concat(bs).forEach(function(x){io.observe(x)});
+}
+var q=new URLSearchParams(location.search);
+function pick(id,v){var s=document.getElementById(id);if(!s||!v)return;[].slice.call(s.options).forEach(function(o){if(o.text.toLowerCase()===v.toLowerCase())s.value=o.value})}
+pick('cause',q.get('cause'));pick('subject',q.get('subject'));
+var am=document.getElementById('amount');
+[].slice.call(document.querySelectorAll('.chips button')).forEach(function(b){b.addEventListener('click',function(){am.value=b.dataset.v;[].slice.call(b.parentNode.children).forEach(function(c){c.classList.toggle('on',c===b)})})});
+[].slice.call(document.querySelectorAll('form[data-ajax]')).forEach(function(f){
+ f.addEventListener('submit',function(e){e.preventDefault();var m=f.querySelector('.msg'),btn=f.querySelector('button[type=submit]');btn.disabled=true;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+  .then(function(r){if(!r.ok)throw 0;m.className='msg';m.textContent=f.name==='donation'?'Thank you. We have your details and will contact you shortly with the payment information.':'Thank you. Your message has been sent and we will reply soon.';m.hidden=false;f.reset()})
+  .catch(function(){m.className='msg err';m.textContent='We could not send that. Please try again or message us on WhatsApp.';m.hidden=false})
+  .then(function(){btn.disabled=false})})});
+})();
+</script>
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,b=document.querySelector('.bg');if(!b)return;
+var sl=[].slice.call(b.querySelectorAll('.s')),d=document.querySelector('.sd'),cap=document.querySelector('.cap'),h=document.querySelector('.hh'),i=0,t=null,dots=[];
+sl.forEach(function(_,k){var x=document.createElement('button');x.type='button';x.setAttribute('aria-label','Go to photo '+(k+1));x.onclick=function(){go(k);play()};d.appendChild(x);dots.push(x)});
+function go(n){i=(n+sl.length)%sl.length;sl.forEach(function(s,k){s.classList.toggle('on',k===i)});dots.forEach(function(x,k){x.classList.toggle('on',k===i)});cap.textContent=sl[i].dataset.cap}
+function play(){stop();if(!rm)t=setInterval(function(){go(i+1)},5500)}
+function stop(){clearInterval(t)}
+document.querySelector('.sp').onclick=function(){go(i-1);play()};
+document.querySelector('.sn').onclick=function(){go(i+1);play()};
+h.addEventListener('mouseenter',stop);h.addEventListener('mouseleave',play);
+var x0=null;h.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+h.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50){go(i+(dx<0?1:-1));play()}x0=null});
+go(0);play();
+})();
+</script>
+<script>
+(function(){
+var d=document.getElementById('cdlg');if(!d||!d.showModal)return;
+var $=function(i){return document.getElementById(i)};
+function open(a){
+ $('cdt').textContent=a.querySelector('h3').textContent;$('cdm').textContent=a.dataset.more;
+ $('cdb').innerHTML=a.querySelector('.bar').outerHTML+a.querySelector('.cn').outerHTML;
+ $('cdp').innerHTML='';a.dataset.pts.split('|').forEach(function(t){var l=document.createElement('li');l.textContent=t;$('cdp').appendChild(l)});
+ $('cdd').href=a.querySelector('a.btn').getAttribute('href');
+ var bar=$('cdb').querySelector('.bar i'),w=bar.dataset.p+'%';bar.style.width='0';
+ document.body.classList.add('lock');d.showModal();requestAnimationFrame(function(){requestAnimationFrame(function(){bar.style.width=w})});
+}
+[].slice.call(document.querySelectorAll('.cp')).forEach(function(a){
+ a.addEventListener('click',function(e){if(e.target.closest('a'))return;open(a)});
+ a.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a')){e.preventDefault();open(a)}});
+});
+$('cdx').onclick=function(){d.close()};
+d.addEventListener('click',function(e){if(e.target===d)d.close()});
+d.addEventListener('close',function(){document.body.classList.remove('lock')});
+})();
+</script>
+</body></html>
